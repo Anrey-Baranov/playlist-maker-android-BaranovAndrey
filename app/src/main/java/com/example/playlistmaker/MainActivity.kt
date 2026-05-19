@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
+import com.example.playlistmaker.ui.theme.MyPlaylistMakerTheme  // ← добавить импорт
 
 class MainActivity : ComponentActivity() {
 
@@ -11,8 +12,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val navController = rememberNavController()
-            PlaylistHost(navController = navController)
+            MyPlaylistMakerTheme {  // ← ОБЕРНИ В ТЕМУ
+                val navController = rememberNavController()
+                PlaylistHost(navController = navController)
+            }
         }
     }
 }
